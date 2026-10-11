@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 🎂✨ | 26 October Special Celebration</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+</head>
+<body>
+
+  <!-- Ambient Glow -->
+  <div class="bg-ambient">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+
+  <!-- Confetti and Particle Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Top Floating Controls -->
+  <div class="top-controls">
+    <button class="btn-ctrl" id="party-mode-btn" title="Toggle Party Blast">
+      <span>🎉</span>
+      <span class="ctrl-text">Party Mode</span>
+    </button>
+    <button class="btn-ctrl" id="music-btn" title="Birthday Music Player">
+      <div class="music-bars muted" id="music-indicator">
+        <span class="music-bar"></span>
+        <span class="music-bar"></span>
+        <span class="music-bar"></span>
+        <span class="music-bar"></span>
+      </div>
+      <span id="music-text">Play Melody</span>
+    </button>
+  </div>
+
+  <!-- LOADER SCREEN -->
+  <div id="loader-screen">
+    <div class="loader-cake">🎂</div>
+    <h1 class="loader-title">Happy Birthday! 🎈</h1>
+    <p class="loader-subtitle">Preparing an unforgettable celebration filled with prayers, sweet memories & special surprises for you... ✨</p>
+    
+    <div class="loader-progress-wrap">
+      <div class="loader-progress-bar" id="loader-bar"></div>
+    </div>
+    <span class="loader-percent" id="loader-percent">0%</span>
+
+    <button class="btn-enter" id="enter-btn">
+      Open Your Birthday Surprise 🎁✨
+    </button>
+  </div>
+
+  <!-- HERO SECTION -->
+  <header class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-date-pill">
+        <span>✨</span>
+        <span>A Very Special Day: <strong>26th October</strong></span>
+        <span>🎈</span>
+      </div>
+
+      <h1 class="hero-title-main">Happy Birthday to You!</h1>
+      <h2 class="hero-subtitle">May your days always be filled with endless smiles & pure blessings 🌸🤍</h2>
+
+      <!-- Typing Effect Text -->
+      <div class="typing-container">
+        <span id="typed-text"></span><span class="cursor-blink">|</span>
+      </div>
+
+      <!-- COUNTDOWN / CELEBRATION BOX -->
+      <div class="countdown-box">
+        <div class="time-segment">
+          <span class="time-val" id="cd-days">00</span>
+          <span class="time-label">Days</span>
+        </div>
+        <div class="time-segment">
+          <span class="time-val" id="cd-hours">00</span>
+          <span class="time-label">Hours</span>
+        </div>
+        <div class="time-segment">
+          <span class="time-val" id="cd-mins">00</span>
+          <span class="time-label">Mins</span>
+        </div>
+        <div class="time-segment">
+          <span class="time-val" id="cd-secs">00</span>
+          <span class="time-label">Secs</span>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="hero-actions">
+        <a href="#duain" class="btn-primary">
+          <span>🤲🏻</span>
+          <span>Birthday Duain & Prayers</span>
+        </a>
+        <a href="#memories" class="btn-glass">
+          <span>📸</span>
+          <span>Sweet Memories</span>
+        </a>
+        <a href="#games" class="btn-glass">
+          <span>🎮</span>
+          <span>Fun Games Zone</span>
+        </a>
+        <button class="btn-glass" id="trigger-confetti-btn">
+          <span>🎊</span>
+          <span>Shower Confetti!</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PHOTO MEMORIES SECTION -->
+  <section class="section" id="memories">
+    <div class="container text-center">
+      <div class="section-badge">✨ Cherished Moments</div>
+      <h2 class="section-title">The Star of the Day 🌟</h2>
+      <p class="section-desc">Every picture captures the brilliance, kindness, and wonderful charm of who you are. Keep shining brighter every single day!</p>
+
+      <div class="gallery-grid">
+        <!-- Photo 1 -->
+        <div class="polaroid-card" onclick="openPhotoModal('assets/images/media_1791712081228.jpg', 'Cool, calm & always effortlessly stylish! 🕶️🤍')">
+          <div class="polaroid-pin"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="assets/images/media_1791712081228.jpg" alt="Special Memory 1" loading="lazy">
+            <span class="polaroid-tag">Vibe & Elegance ✨</span>
+            <div class="polaroid-sparkles"></div>
+          </div>
+          <p class="polaroid-caption">Forever Iconic ✨</p>
+          <p class="polaroid-sub">May your journey always be as bright as your spirit!</p>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="polaroid-card" onclick="openPhotoModal('assets/images/media_1791712088301.jpg', 'Dapper, graceful & destined for supreme greatness! 🌹🖤')">
+          <div class="polaroid-pin"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="assets/images/media_1791712088301.jpg" alt="Special Memory 2" loading="lazy">
+            <span class="polaroid-tag">Royal Charm 👑</span>
+            <div class="polaroid-sparkles"></div>
+          </div>
+          <p class="polaroid-caption">Grace & Success 🖤</p>
+          <p class="polaroid-sub">Dua hai Allah apko kamiyabi ki bulandiyon par pohchaye!</p>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="polaroid-card" onclick="openPhotoModal('assets/images/media_1791712094660.jpg', 'Focused, hardworking and achieving every high goal! 💻🔥')">
+          <div class="polaroid-pin"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="assets/images/media_1791712094660.jpg" alt="Special Memory 3" loading="lazy">
+            <span class="polaroid-tag">Dream Chaser 🚀</span>
+            <div class="polaroid-sparkles"></div>
+          </div>
+          <p class="polaroid-caption">Hard Work & Passion 💫</p>
+          <p class="polaroid-sub">Always focused on goals and building a bright future!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIAL DUAIN & BLESSINGS SHRINE -->
+  <section class="section duain-section" id="duain">
+    <div class="container">
+      <div class="duain-banner">
+        <div class="section-badge">🤲🏻 دُعائیں اور برکتیں</div>
+        <h2 class="section-title">Endless Duain & Special Prayers For You</h2>
+        <p class="section-desc">On this precious day, here are heartfelt prayers straight from the deepest corner of the heart. May the Almighty answer every good wish for you!</p>
+
+        <!-- AMEEN COUNTER & BUTTON -->
+        <div class="ameen-counter-box">
+          <div class="ameen-stat">
+            <span class="ameen-badge">🤍</span>
+            <div>
+              <div class="ameen-num" id="ameen-count">100</div>
+              <div style="color: var(--text-muted); font-size: 0.9rem;">Duas Blessed & Ameen Said 🤲🏻</div>
+            </div>
+          </div>
+          <button class="btn-say-ameen" id="btn-ameen">
+            <span>🤲🏻</span>
+            <span>Say "Ameen" (آمین)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DUA CARDS GRID -->
+      <div class="duain-grid">
+        <!-- Dua 1 -->
+        <div class="dua-card">
+          <div>
+            <div class="dua-icon">🤍</div>
+            <div class="dua-arabic">اللَّهُمَّ بَارِكْ لَهُ فِي حَيَاتِهِ وَعَافِيَتِهِ</div>
+            <p class="dua-text">
+              <strong>May Allah bless you with endless happiness, success, peace, and good health.</strong> May all your dreams come true and may you always have a reason to smile. 🌸💫
+            </p>
+          </div>
+          <div class="dua-footer">
+            <span>Protection & Happiness 🤍</span>
+            <button class="dua-like-btn" onclick="likeDua(this)">❤️ <span>74</span></button>
+          </div>
+        </div>
+
+        <!-- Dua 2 -->
+        <div class="dua-card">
+          <div>
+            <div class="dua-icon">🛡️</div>
+            <div class="dua-arabic">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ سُوءٍ</div>
+            <p class="dua-text">
+              <strong>Allah tumhein har buri nazar se mehfooz rakhe.</strong> May Allah protect you from every difficulty and fill your life with countless blessings. Har mushkil asaan ho aur rasta asaan ho! 🤲🏻❤️
+            </p>
+          </div>
+          <div class="dua-footer">
+            <span>Hifazat & Salamati 🤲🏻</span>
+            <button class="dua-like-btn" onclick="likeDua(this)">❤️ <span>92</span></button>
+          </div>
+        </div>
+
+        <!-- Dua 3 -->
+        <div class="dua-card">
+          <div>
+            <div class="dua-icon">✨</div>
+            <div class="dua-arabic">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً</div>
+            <p class="dua-text">
+              <strong>Allah tumhari har jaiz dua qabool kare,</strong> tumhari zindagi ko khushiyon se bhar de aur tumhein har us cheez se nawaze jo tumhare haq mein behtareen ho. Ameen sum Ameen. 🌸🤍
+            </p>
+          </div>
+          <div class="dua-footer">
+            <span>Qabooliyat-e-Dua 🤲🏻</span>
+            <button class="dua-like-btn" onclick="likeDua(this)">❤️ <span>85</span></button>
+          </div>
+        </div>
+
+        <!-- Dua 4 -->
+        <div class="dua-card">
+          <div>
+            <div class="dua-icon">🎁</div>
+            <div class="dua-arabic">اللَّهُمَّ حَقِّقْ لَهُ مَا يَتَمَنَّى خَيْرًا</div>
+            <p class="dua-text">
+              <strong>May this new chapter bring you beautiful moments,</strong> unforgettable memories, and everything your heart wishes for. You deserve nothing but the best in this world! 🥹🎁✨
+            </p>
+          </div>
+          <div class="dua-footer">
+            <span>Dreams & Wishes 💫</span>
+            <button class="dua-like-btn" onclick="likeDua(this)">❤️ <span>69</span></button>
+          </div>
+        </div>
+
+        <!-- Dua 5 -->
+        <div class="dua-card">
+          <div>
+            <div class="dua-icon">💖</div>
+            <div class="dua-arabic">اللَّهُمَّ احْفَظْهُ وَأَسْعِدْ قَلْبَهُ دَائِمًا</div>
+            <p class="dua-text">
+              <strong>May your smile always stay bright and your heart always stay at peace.</strong> 🥹🫀 Allah tumhein lambi, sehatmand aur khushiyon bhari zindagi ata farmaye. Ameen. 🤍🎀
+            </p>
+          </div>
+          <div class="dua-footer">
+            <span>Lambi Umar & Sehat 🌸</span>
+            <button class="dua-like-btn" onclick="likeDua(this)">❤️ <span>98</span></button>
+          </div>
+        </div>
+
+        <!-- Dua 6 -->
+        <div class="dua-card">
+          <div>
+            <div class="dua-icon">🚀</div>
+            <div class="dua-arabic">اللَّهُمَّ يَسِّرْ أُمُورَهُ وَوَفِّقْهُ لِكُلِّ خَيْرٍ</div>
+            <p class="dua-text">
+              <strong>Dua hai ke tumhara har din pehle se behtar ho.</strong> Tumhari zindagi mein kabhi khushiyon ki kami na ho aur Allah tumhein kamyabi ki bulandiyon tak pohchaye. 🫶🏻🌍
+            </p>
+          </div>
+          <div class="dua-footer">
+            <span>Success & Guidance 🌍</span>
+            <button class="dua-like-btn" onclick="likeDua(this)">❤️ <span>88</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEARTFELT WISHES & LETTERS SECTION -->
+  <section class="section" id="wishes">
+    <div class="container">
+      <div style="text-align: center;">
+        <div class="section-badge">💌 Special Letters</div>
+        <h2 class="section-title">Words From The Heart</h2>
+        <p class="section-desc">Personal birthday messages composed specially to celebrate this auspicious day.</p>
+      </div>
+
+      <div class="wishes-tabs">
+        <button class="tab-btn active" onclick="switchWishTab('tab1', this)">💖 Golden Wish & Prayer</button>
+        <button class="tab-btn" onclick="switchWishTab('tab2', this)">🎂 Chapter of Joy Letter</button>
+      </div>
+
+      <div class="wishes-content-box">
+        <span class="quote-mark">“</span>
+        
+        <!-- Tab 1 Message -->
+        <div id="tab1" class="wish-tab-content">
+          <p class="wishes-text">
+🎂🎉 <span class="wishes-highlight">Happiest Birthday to youuu! 🥳❤️✨</span>
+
+May Allah bless you with everything your heart desires and make your life full of happiness, success, and peace. 🤍🫶🏻 
+
+Allah tumhari har jaiz dua qabool kare, tumhari zindagi ko khushiyon se bhar de aur tumhein har buri nazar se mehfooz rakhe. <span class="wishes-highlight">Ameen sum Ameen. 🤲🏻🌸</span>
+
+I hope you always keep smiling, achieve everything you dream of, and get all the happiness you truly deserve. 🥹💗 May this new chapter bring you countless blessings, beautiful memories, and endless reasons to be happy. 🎁💫
+
+Dua hai ke tumhari zindagi mein kabhi khushiyon ki kami na ho, tumhara har din pehle se behtar ho aur Allah tumhein har us cheez se nawaze jo tumhare haq mein behtareen ho. ❤️🩹✨
+
+Stay blessed, stay happy, and keep being the amazing person you are. 🫶🏻🌍 You deserve nothing but the best in life. May Allah always guide you towards success and protect you from every difficulty. 🤲🏻💐
+
+Once again, <span class="wishes-highlight">HAPPIEST BIRTHDAY! 🎂🎊❤️</span> May your smile always stay bright and your heart always stay at peace. 🥹🫀 Allah tumhein lambi, sehatmand aur khushiyon bhari zindagi ata farmaye. Ameen. 🤍🎀
+
+Enjoy your special day to the fullest! 🥳🎉 Sending you lots of prayers, happiness, and best wishes. 💗🫂✨
+          </p>
+        </div>
+
+        <!-- Tab 2 Message -->
+        <div id="tab2" class="wish-tab-content" style="display: none;">
+          <p class="wishes-text">
+🎂🎉 <span class="wishes-highlight">Happy Birthday to you! 🥳🎈✨</span>
+
+May Allah bless you with endless happiness, success, peace, and good health. 🤍🫶🏻 May all your dreams come true and may you always have a reason to smile. 🌸💫 May Allah protect you from every difficulty and fill your life with countless blessings. 🤲🏻❤️
+
+I hope this new chapter of your life brings you beautiful moments, unforgettable memories, and everything your heart wishes for. 🥹🎁✨ 
+
+<span class="wishes-highlight">Stay happy, keep smiling, and always be the amazing person you are. 🫶🏻💗</span> 
+May your day be filled with love, laughter, and lots of happiness. 🎊🎂💐
+
+Once again, happiest birthday to you! 🎉🎂 May Allah always keep you safe, successful, and blessed. Ameen. 🤲🏻❤️🩹✨
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE GAMES & SURPRISES ZONE -->
+  <section class="section" id="games">
+    <div class="container">
+      <div style="text-align: center;">
+        <div class="section-badge">🎮 Mini-Games & Fun</div>
+        <h2 class="section-title">The Birthday Arcade & Fun Zone</h2>
+        <p class="section-desc">Play sweet games crafted specially for you to unlock blessings, compliments, and gifts!</p>
+      </div>
+
+      <div class="games-hub">
+        <!-- GAME 1: BALLOON POPPER -->
+        <div class="game-card">
+          <span class="game-badge">Game 1</span>
+          <h3 class="game-title">🎈 Balloon Pop Mania</h3>
+          <p class="game-desc">Pop flying balloons to earn birthday score and unlock secret sweet compliments!</p>
+          
+          <div class="balloon-arena" id="balloon-arena"></div>
+
+          <div class="pop-scoreboard">
+            <div>Score: <span class="pop-score-tag" id="balloon-score">0</span> 🎈</div>
+            <button class="btn-ctrl" id="spawn-balloon-btn">🎈 Release Balloons</button>
+          </div>
+          <div class="pop-compliment-box" id="balloon-compliment">Click release to pop balloons! 👆</div>
+        </div>
+
+        <!-- GAME 2: CANDLE BLOW -->
+        <div class="game-card">
+          <span class="game-badge">Game 2</span>
+          <h3 class="game-title">🎂 Make a Wish & Blow Candle</h3>
+          <p class="game-desc">Make a sincere wish in your heart, then tap or blow the candle flame to ignite fireworks!</p>
+          
+          <div class="cake-stage">
+            <div class="interactive-cake" id="interactive-cake" onclick="blowCandle()">
+              🎂
+              <div class="flame-particle" id="cake-flame"></div>
+            </div>
+            <p class="cake-msg" id="cake-msg">Tap the cake to blow the candle! 🕯️</p>
+          </div>
+
+          <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="blowCandle()">
+            <span>💨</span>
+            <span>Blow Candle Now</span>
+          </button>
+        </div>
+
+        <!-- GAME 3: SCRATCH CARD -->
+        <div class="game-card">
+          <span class="game-badge">Game 3</span>
+          <h3 class="game-title">🎁 Magic Scratch Card</h3>
+          <p class="game-desc">Scratch with your finger or mouse cursor to uncover a secret golden blessing!</p>
+          
+          <div class="scratch-container">
+            <div class="scratch-secret">
+              <span style="font-size: 2rem; margin-bottom: 6px;">🌟</span>
+              <span>"May every single prayer in your heart find its glorious answer this year! Ameen." 🤍🤲🏻</span>
+            </div>
+            <canvas id="scratch-canvas"></canvas>
+          </div>
+          
+          <button class="btn-glass" style="width: 100%; justify-content: center; margin-top: 15px;" onclick="resetScratch()">
+            <span>🔄</span>
+            <span>Cover & Scratch Again</span>
+          </button>
+        </div>
+
+        <!-- GAME 4: COMPLIMENT & DUA GENERATOR -->
+        <div class="game-card">
+          <span class="game-badge">Game 4</span>
+          <h3 class="game-title">✨ Mystery Compliment Box</h3>
+          <p class="game-desc">Click below to draw a special birthday compliment or fortune note!</p>
+          
+          <div class="compliment-box">
+            <p class="compliment-text" id="random-compliment">"You bring positivity and genuine smiles wherever you go! 🌟"</p>
+          </div>
+
+          <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="drawNewCompliment()">
+            <span>🎲</span>
+            <span>Reveal Another Compliment</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SURPRISE GIFT UNWRAPPING -->
+      <div class="gift-wrapper">
+        <h3 style="font-size: 1.8rem; margin-bottom: 10px;">One Last Mystery Box For You 🎁</h3>
+        <p style="color: var(--text-muted); margin-bottom: 25px;">Tap the giant gift box below to open your virtual gift card!</p>
+        <div class="gift-box" onclick="openGiftModal()">🎁</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO MODAL VIEWER -->
+  <div class="modal-overlay" id="photo-modal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closePhotoModal()">&times;</button>
+      <img id="modal-img" src="" alt="Enlarged Memory" style="width: 100%; max-height: 400px; object-fit: contain; border-radius: 16px; margin-bottom: 15px;">
+      <p id="modal-caption" style="font-family: var(--font-script); font-size: 1.6rem; color: #ffd166;"></p>
+    </div>
+  </div>
+
+  <!-- GIFT MODAL POPUP -->
+  <div class="modal-overlay" id="gift-modal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeGiftModal()">&times;</button>
+      <div style="font-size: 4rem; margin-bottom: 15px;">👑🎉</div>
+      <h3 style="font-size: 2rem; color: #ffd166; margin-bottom: 15px;">A Royal Birthday Tribute!</h3>
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #eee; margin-bottom: 20px;">
+        "May this year bring you the most fruitful achievements, peace of mind that never fades, companions who cherish you, and blessings so immense that words fall short! Keep smiling and stay wonderful!"
+      </p>
+      <p style="font-family: var(--font-script); font-size: 1.8rem; color: #ff85a1;">Happiest 26th October Birthday! 🎂✨</p>
+      <button class="btn-primary" style="margin-top: 25px;" onclick="closeGiftModal()">Thank You! 🤍</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p class="footer-quote">Happy Birthday! 26th October ✨</p>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">
+        Crafted with love, prayers, and heartfelt wishes. May Allah bless you always! Ameen 🤲🏻🤍
+      </p>
+      <div style="display: flex; justify-content: center; gap: 15px;">
+        <button class="btn-ctrl" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆️ Back to Top</button>
+        <button class="btn-ctrl" onclick="triggerConfettiCannon()">🎉 Blast Confetti</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
